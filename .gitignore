@@ -1,0 +1,17 @@
+*.pyc
+*.bak
+*.dat
+*.dir
+*.pyc
+*~
+
+.ipynb_checkpoints
+.vscode
+
+checkpoint
+myvenv
+__pycache__
+
+logs/*
+
+tf_logs/*
