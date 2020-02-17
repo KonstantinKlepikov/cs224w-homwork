@@ -7,6 +7,7 @@ ca-certificates=2020.1.1=0
 certifi=2019.11.28=py37_0
 colorama=0.4.3=py_0
 cycler=0.10.0=py37_0
+decorator=4.4.1=pypi_0
 freetype=2.9.1=ha9979f8_1
 icc_rt=2019.0.0=h0cc432a_1
 icu=58.2=ha66f8fd_1
@@ -24,6 +25,7 @@ mkl=2020.0=166
 mkl-service=2.3.0=py37hb782905_0
 mkl_fft=1.0.15=py37h14836fe_0
 mkl_random=1.1.0=py37h675688f_0
+networkx=2.4=pypi_0
 numpy=1.18.1=py37h93ca92e_0
 numpy-base=1.18.1=py37hc3f5095_1
 openssl=1.1.1d=he774522_4
