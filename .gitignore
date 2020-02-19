@@ -21,3 +21,10 @@ input/**
 
 output/**
 !output/.gitkeep
+
+images/**
+!images//.gitkeep
+
+*.dot
+*.plt
+*.tab
