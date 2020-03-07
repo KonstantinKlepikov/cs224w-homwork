@@ -23,7 +23,7 @@ output/**
 !output/.gitkeep
 
 images/**
-!images//.gitkeep
+!images/.gitkeep
 
 *.dot
 *.plt

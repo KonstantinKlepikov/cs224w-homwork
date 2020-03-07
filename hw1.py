@@ -7,6 +7,7 @@
 import snap
 import numpy as np
 import matplotlib.pyplot as plt
+from random import randint
 
 # Setup
 erdosRenyi = None
@@ -25,8 +26,12 @@ def genErdosRenyi(N=5242, E=14484):
     """
     ############################################################################
     # TODO: Your code here!
-    Graph = None
+    Graph = snap.PUNGraph.New()
+    for n in range(1, N + 1):
+        Graph.AddNode(n)
 
+    for _ in range(E):
+        Graph.AddEdge(randint(1, N), randint(1, N))
     ############################################################################
     return Graph
 
