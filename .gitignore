@@ -12,6 +12,10 @@ checkpoint
 myvenv
 __pycache__
 
+*.dot
+*.plt
+*.tab
+
 logs/*
 
 tf_logs/*
@@ -25,7 +29,4 @@ output/**
 images/**
 !images/.gitkeep
 !images/???.png
-
-*.dot
-*.plt
-*.tab
+!images/*.dot

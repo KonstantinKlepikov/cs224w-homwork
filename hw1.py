@@ -46,7 +46,13 @@ def genCircle(N=5242):
     """
     ############################################################################
     # TODO: Your code here!
-    Graph = None
+    Graph = snap.PUNGraph.New()
+    for n in range(1, N + 1):
+        Graph.AddNode(n)
+        if n > 1:
+            Graph.AddEdge(n - 1, n)
+        if n == N:
+            Graph.AddEdge(1, n)
     ############################################################################
     return Graph
 
@@ -62,6 +68,11 @@ def connectNbrOfNbr(Graph, N=5242):
     """
     ############################################################################
     # TODO: Your code here!
+    for n in range(1, N + 1):
+        if n > 2:
+            Graph.AddEdge(n - 2, n)
+    Graph.AddEdge(1, N - 1)
+    Graph.AddEdge(2, N)
 
     ############################################################################
     return Graph
@@ -78,7 +89,15 @@ def connectRandomNodes(Graph, M=4000):
     """
     ############################################################################
     # TODO: Your code here!
-
+    Rnd = snap.TRnd(42)
+    Rnd.Randomize()
+    counter = 0
+    while counter <= M:
+        Nid = Graph.GetRndNId(Rnd)
+        Mid = Graph.GetRndNId(Rnd)
+        if not Graph.IsEdge(Nid, Mid):
+            Graph.AddEdge(Nid, Mid)
+            counter += 1
     ############################################################################
     return Graph
 
