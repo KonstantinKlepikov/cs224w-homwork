@@ -8,6 +8,7 @@ import snap
 import numpy as np
 import matplotlib.pyplot as plt
 from random import randint
+import os
 
 # Setup
 erdosRenyi = None
@@ -127,8 +128,11 @@ def loadCollabNet(path):
     """
     ############################################################################
     # TODO: Your code here!
-    Graph = None
-
+    gp = os.path.join('input', path)
+    Graph = snap.LoadEdgeList(snap.PUNGraph, gp, 0, 1)
+    for nodeId in range(5242):
+        if Graph.IsEdge(nodeId, nodeId):
+            Graph.DelEdge(nodeId, nodeId)
     ############################################################################
     return Graph
 
@@ -143,8 +147,17 @@ def getDataPointsToPlot(Graph):
     """
     ############################################################################
     # TODO: Your code here!
-    X, Y = [], []
-
+    degree_dict = {}
+    for node in Graph.Nodes():
+        if not degree_dict.get(node.GetDeg()):
+            degree_dict[node.GetDeg()] = 1
+        else:
+            degree_dict[node.GetDeg()] = degree_dict[node.GetDeg()] + 1
+    list_of_k = sorted(degree_dict)
+    list_of_v = []
+    for i in list_of_k:
+        list_of_v.append(degree_dict[i])
+    X, Y = list_of_k, list_of_v
     ############################################################################
     return X, Y
 
@@ -175,7 +188,7 @@ def Q1_1():
 
 
 # Execute code for Q1.1
-Q1_1()
+# Q1_1()
 
 
 # Problem 1.2 - Clustering Coefficient
@@ -191,8 +204,21 @@ def calcClusteringCoefficientSingleNode(Node, Graph):
     """
     ############################################################################
     # TODO: Your code here!
-    C = 0.0
-
+    k = Node.GetDeg()
+    if k > 2:
+        e = 0
+        neighbors = []
+        for node in Graph.Nodes():
+            if Graph.IsEdge(node.GetId(), Node.GetId()):
+                neighbors.append(node.GetId())
+        for i in neighbors:
+            for j in neighbors:
+                if Graph.IsEdge(i, j):
+                    e += 1
+            neighbors.remove(i)
+        C = float(2 * e / (k * (k - 1)))
+    else:
+        C = 0.0
     ############################################################################
     return C
 
@@ -206,8 +232,10 @@ def calcClusteringCoefficient(Graph):
     ############################################################################
     # TODO: Your code here! If you filled out calcClusteringCoefficientSingleNode,
     #       you'll probably want to call it in a loop here
-    C = 0.0
-
+    c_sum = 0.0
+    for node in Graph.Nodes():
+        c_sum += calcClusteringCoefficientSingleNode(node, Graph)
+    C = c_sum / Graph.GetNodes()
     ############################################################################
     return C
 
@@ -225,4 +253,4 @@ def Q1_2():
 
 
 # Execute code for Q1.2
-Q1_2()
+# Q1_2()
