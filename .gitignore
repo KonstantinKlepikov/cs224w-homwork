@@ -32,3 +32,5 @@ images/**
 !images/*.dot
 
 gd_project/keys.py
+gd_project/input/**
+!gd_project/input/.gitkeep
