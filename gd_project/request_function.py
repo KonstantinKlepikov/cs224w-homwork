@@ -7,6 +7,17 @@ def request_url(*param, req='search', form='json', api_url='http://api.duma.gov.
     """
     Function for API GET-request
 
+    Format
+    ------
+
+    http://api.duma.gov.ru/api/:token/:request.:format?app_token=:app_token&param1=1&param2=2
+
+    :token — API-key;
+    :app_token — APP-key;
+    :request — mode of request;
+    :format — fomat of data;
+    param1, param2 — parameters of request.
+
     Parameters
     ----------
     :param param: 
@@ -35,11 +46,19 @@ def request_url(*param, req='search', form='json', api_url='http://api.duma.gov.
     if param:
         for i in param:
             body = body + '&' + i
-    
     try:
         response = requests.get(body)
         if response.status_code == 200:
-            print('200 Success!')
+            if mode == 'print':
+                print('200 Success!')
+                if response.json():
+                    for j in response.json().items():
+                        print(str(j[0]) + ': ' + str(j[1]))
+                else:
+                    print(body)
+                    print('Empty json in response')
+                print('')
+
         elif response.status_code == 404:
             print('404 Not Found!')
         response.raise_for_status()
@@ -47,9 +66,5 @@ def request_url(*param, req='search', form='json', api_url='http://api.duma.gov.
         print('HTTP error occurred: {}'.format(http_err))
     except Exception as err:
         print('Other error occurred: {}'.format(err))
-
-    if mode == 'print':
-        for j in response.json().items():
-            print(str(j[0]) + ': ' + str(j[1]))
         
     return response
