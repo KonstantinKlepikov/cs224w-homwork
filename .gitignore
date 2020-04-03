@@ -33,4 +33,8 @@ images/**
 
 gd_project/keys.py
 gd_project/input/**
+gd_project/output/**
+gd_project/images/**
 !gd_project/input/.gitkeep
+!gd_project/output/.gitkeep
+!gd_project/images/.gitkeep
