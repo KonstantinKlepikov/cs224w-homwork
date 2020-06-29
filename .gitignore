@@ -22,6 +22,8 @@ tf_logs/*
 
 input/**
 !input/.gitkeep
+!input/graph_nn_data
+!input/graph_nn_data/.gitkeep
 
 output/**
 !output/.gitkeep
@@ -30,6 +32,9 @@ images/**
 !images/.gitkeep
 !images/???.png
 !images/*.dot
+
+ngrok-stable-linux-amd64/**
+!ngrok-stable-linux-amd64/.gitkeep
 
 gd_project/keys.py
 gd_project/input/**
