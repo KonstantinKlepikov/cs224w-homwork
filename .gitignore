@@ -45,3 +45,13 @@ gd_project/dumped_data/**
 !gd_project/output/.gitkeep
 !gd_project/images/.gitkeep
 !gd_project/dumped_data/.gitkeep
+
+books_project/keys.py
+books_project/input/**
+books_project/output/**
+books_project/images/**
+books_project/dumped_data/**
+!books_project/input/.gitkeep
+!books_project/.gitkeep
+!books_project/images/.gitkeep
+!books_project/dumped_data/.gitkeep
