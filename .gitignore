@@ -28,10 +28,15 @@ input/**
 output/**
 !output/.gitkeep
 
-images/**
+!images/
+images/*
 !images/.gitkeep
 !images/???.png
 !images/*.dot
+!images/illustration/
+!images/illustration/*.png
+!images/illustration/*.jpg
+
 
 ngrok-stable-linux-amd64/**
 !ngrok-stable-linux-amd64/.gitkeep
@@ -55,3 +60,5 @@ books_project/dumped_data/**
 !books_project/.gitkeep
 !books_project/images/.gitkeep
 !books_project/dumped_data/.gitkeep
+
+gtrieScanner_src_01
