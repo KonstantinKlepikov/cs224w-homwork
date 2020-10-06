@@ -24,6 +24,8 @@ input/**
 !input/.gitkeep
 !input/graph_nn_data
 !input/graph_nn_data/.gitkeep
+!input/Cora
+!input/Cora/.gitkeep
 
 output/**
 !output/.gitkeep
